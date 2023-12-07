@@ -5,7 +5,7 @@ class ChatEngine {
 
         // to initiate connection or send a connection request to server
         // emitting connection request from subscriber
-        this.socket = io.connect('http://localhost:5000', { transports : ['websocket', 'polling', 'flashsocket'] });
+        this.socket = io.connect('http://13.53.190.211:5000', { transports : ['websocket', 'polling', 'flashsocket'] });
 
         if (this.userEmail) {
             this.connectionHandler();
