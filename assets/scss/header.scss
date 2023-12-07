@@ -1,0 +1,29 @@
+$header-blue: #0072ff;
+$header-font-size: 16px;
+
+header {
+    width: 100%;
+    height: 3.5 * $header-font-size;
+    background-color: $header-blue;
+    padding: 0px 20px;
+
+    #site-title {
+        font-size: 1.5 * $header-font-size;
+        font-weight: bolder;
+    }
+
+    nav ul {
+        list-style-type: none;
+        display: flex;
+        gap: $header-font-size;
+
+        li {
+            font-size: 1.1 * $header-font-size;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+}

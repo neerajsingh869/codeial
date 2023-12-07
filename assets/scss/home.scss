@@ -1,0 +1,15 @@
+#home-container {
+    display: flex;
+    flex-grow: 1;
+    
+    #posts-section {
+        width: 70%;
+        padding: 10px;
+    }
+
+    #users-friends-section {
+        width: 30%;
+        padding: 10px;
+        border-left: 2px solid lightgrey;
+    }
+}

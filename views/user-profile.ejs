@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="<%= assetPath('styles/user-profile.css') %>">
+<div>
+    <img src="<%= profileUser.avatar %>" alt="Profile Picture">
+</div>
+<div>
+    <p>User name: <strong><%= profileUser.name %></strong></p>
+    <p>User email: <strong><%= profileUser.email %></strong></p>
+</div>
+<div>
+    <% if (locals.user.id === profileUser.id) { %> 
+        <form action="/users/update-profile/<%= profileUser.id %>" method="post" enctype="multipart/form-data">
+            <input type="text" name="username" placeholder="Type new username..." value="<%= profileUser.name %>" required>
+            <input type="file" placeholder="Profile Picture" name="avatar">
+            <button>Submit</button>
+        </form>    
+    <% } %>
+</div>
+<div>
+    <% if (locals.user.id !== profileUser.id) { %> 
+        <button>
+            <% if (!isFriend) { %> 
+                <a href="/users/add-friend/<%= profileUser.id %>">
+                    Add Friend
+                </a>    
+            <% } else { %> 
+                <a href="/users/remove-friend/<%= profileUser.id %>">
+                    Remove Friend
+                </a>    
+            <% } %>
+        </button>    
+    <% } %>
+</div>  

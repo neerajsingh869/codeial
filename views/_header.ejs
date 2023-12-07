@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="<%= assetPath('styles/header.css') %>">
+<header style="display:flex; 
+               justify-content: space-between; 
+               align-items: center;">
+    <div id="site-title">   
+        <a href="/">Codeial</a>
+    </div>
+    <nav>
+        <ul>
+            <% if (locals.user) { %>
+                <li>
+                    <a href="/users/profile/<%= locals.user.id %>"><%= locals.user.name %></a>
+                </li>
+                <li>
+                    <a href="/users/end-session">Logout</a>
+                </li>
+            <% } else {%>
+                <li>
+                    <a href="/users/signup">Signup</a>
+                </li>
+                <li>
+                    <a href="/users/signin">Signin</a>
+                </li>
+            <% } %>
+        </ul>
+    </nav>
+</header>

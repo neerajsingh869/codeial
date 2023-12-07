@@ -1,0 +1,32 @@
+footer {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 0px 20px;
+    min-height: 64px;
+    background-color: lightgrey;
+    font-weight: bold;
+    width: 100%;
+
+    ul {
+        list-style-type: none;
+
+        li:nth-child(2) {
+            margin-top: 6px;
+        }
+
+        li {
+            a {
+                text-decoration: none;
+                color: black;
+                transition: all 0.25s ease-in;
+                border-bottom: 0px solid transparent;
+
+                &:hover {
+                    color: #0072ff;
+                    border-bottom: 1px solid #0072ff;
+                }
+            }
+        }
+    }
+}

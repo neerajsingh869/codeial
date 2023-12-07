@@ -1,0 +1,11 @@
+{
+  "scripts/chat-engine.js": "scripts/chat-engine-be2d0913e2.js",
+  "scripts/posts.js": "scripts/posts-929b2e5e6a.js",
+  "scripts/toggle-like.js": "scripts/toggle-like-db0f5c9690.js",
+  "styles/chat.css": "styles/chat-169700d634.css",
+  "styles/footer.css": "styles/footer-de4038acfe.css",
+  "styles/header.css": "styles/header-d8d7601ab7.css",
+  "styles/home.css": "styles/home-c57c600265.css",
+  "styles/layout.css": "styles/layout-98b868553f.css",
+  "styles/user-profile.css": "styles/user-profile-414a085460.css"
+}

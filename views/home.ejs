@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="<%= assetPath('styles/home.css') %>">
+
+<div id="home-container">
+    <section id="posts-section">
+        <% if (locals.user) { %> 
+            <form action="/posts/save-post" method="post" id="post-form">
+                <h4>Post</h4>
+                <textarea name="content" id="post-content" cols="30" rows="5" placeholder="Post here..."></textarea>
+                <br>
+                <input type="submit" value="Post">
+            </form>
+        <% } %>
+        <div id="posts-list-container">
+            <ul>
+                <% posts.forEach(post => { %> 
+                    <!-- use partials and pass post as context/locals -->
+                    <%- include('_post', { post }) -%>
+                <% }) %>
+            </ul>
+        </div>
+    </section>
+    <% if (locals.user) { %> 
+        <section id="users-friends-section">
+            <aside id="friends-list">
+                <h4>Friends</h4>
+                <ul>
+                    <% friends.forEach(friendObject => { %> 
+                        <li>
+                            <a href="/users/profile/<%= friendObject.friend.id %>">
+                                <%= friendObject.friend.name %>
+                            </a>
+                        </li>
+                    <% }) %>
+                </ul>
+            </aside>
+    
+            <hr>
+    
+            <aside id="users-list">
+                <h4>All Users</h4>
+                <ul>
+                    <% users.forEach(user => { %> 
+                        <li>
+                            <a href="/users/profile/<%= user.id %>">
+                                <%= user.name %>
+                            </a>
+                        </li>
+                    <% }) %>
+                </ul>
+            </aside>
+        </section>
+    <% } %>
+
+    <!-- include chat box -->
+    <%- include('_chat'); -%>
+</div>
+
+<script src="<%= assetPath('scripts/posts.js') %>"></script>
+<script src="<%= assetPath('scripts/toggle-like.js') %>"></script>
+<script>
+    $('.toggle-like-button').each(function() {
+        let self = this;
+        console.log('toggle link attached to - ' + self);
+
+        let toggleLike = new ToggleLike(self);
+    })
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+<script src="<%= assetPath('scripts/chat-engine.js') %>"></script>
+<% if (locals.user) { %> 
+    <script>
+        new ChatEngine('user-chat-box', '<%= locals.user.email %>');
+    </script>    
+<% } %>

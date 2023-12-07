@@ -1,0 +1,3 @@
+-> express will load only once even though there are multiple statements for requiring express.
+
+-> By default, the location of default route is ./routes/index.js. Even if you omit index.js, it will still load index.js.
